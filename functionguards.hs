@@ -53,3 +53,4 @@ calcBmisV2 xs = [ bmi | (w, h) <- xs, let bmi = w / h ^2]
 -- We could make our function return only the BMIs of fat people
 calcBmisV3 :: (RealFloat a) => [(a, a)] -> [a]
 calcBmisV3 xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
+
