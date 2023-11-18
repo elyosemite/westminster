@@ -41,4 +41,15 @@ cylinder r h =
         topArea = pi * r ^ 2
     in sideArea + 2 * topArea
 
+myDogsNames = [if 5 > 3 then "Woo" else "Boo", if 'a' > 'b' then "Foo" else "Bar"]
+
 myCustomSquares = [let square x = x * x in (square 5, square 3, square 25)]
+
+myFoo = (let a = 100; b = 200; c = 300 in a*b*c, let foo="Hey "; bar = "There" in foo ++ bar)
+
+calcBmisV2 :: (RealFloat a) => [(a, a)] -> [a]
+calcBmisV2 xs = [ bmi | (w, h) <- xs, let bmi = w / h ^2]
+
+-- We could make our function return only the BMIs of fat people
+calcBmisV3 :: (RealFloat a) => [(a, a)] -> [a]
+calcBmisV3 xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
