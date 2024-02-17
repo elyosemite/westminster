@@ -14,3 +14,9 @@ whoAmI _ = "I don't know it"
 -- is more than 7 or not
 isGreaterThanSeven :: (Ord a, Num a) => a -> Bool
 isGreaterThanSeven x = x == 7
+
+isEqualToAnotherValue :: (Eq number) => number -> number -> Bool
+isEqualToAnotherValue x y = x == y
+
+maxOfThreeValues :: (Ord number) => number -> number -> number -> number
+maxOfThreeValues x y z = max (max x y) z
