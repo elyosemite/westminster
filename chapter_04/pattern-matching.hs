@@ -75,3 +75,13 @@ tellElement [] = "The list is empty"
 tellElement [x] = "The list has one element: " ++ show x
 tellElement [x,y] = "The list has two elements: " ++ show x ++ " and " ++ show y
 tellElement (x:y:z:_) = " This list is long . The elements are : " ++ show x ++ " and " ++ show y ++ " and " ++ show z
+
+-- Our own length function by using Pattern Matching
+lengthOfList :: (Num b) => [a] -> b
+lengthOfList [] = 0 -- this is known as the edge condition
+lengthOfList (_:xs) = 1 + lengthOfList xs
+
+-- Sum of elements
+sumOfElements :: (Num a) => [a] -> a
+sumOfElements [] = 0
+sumOfElements (x:xs) = x + sumOfElements xs
