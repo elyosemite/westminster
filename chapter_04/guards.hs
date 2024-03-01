@@ -39,3 +39,16 @@ checkOrder a b
     | a > b = "Decrescente"
     | a == b = "Iguais"
     | otherwise = "Crescente"
+
+isVowel :: Char -> String
+isVowel c
+    | c `elem` "AEIOUaeiou" = "Vogal"
+    | otherwise = "Consoante"
+
+gradeClassification :: (RealFloat arg) => arg -> String
+gradeClassification grade
+    | grade < 0  = error "Não pode poder entrar com grande negativo"
+    | grade >= 7 = "Aprovado"
+    | grade >= 5 = "Reprovado"
+    | otherwise  = "Reprovado"
+
