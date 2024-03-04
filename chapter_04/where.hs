@@ -30,3 +30,8 @@ fooCalculate :: (RealFloat a) => [(a, a)] -> [a]
 fooCalculate xs = [bar x y + baz x y| (x, y) <- xs]
     where bar coordenateX coordenateY = coordenateX + coordenateY
           baz coordenateX coordenateY = coordenateX - coordenateY
+
+baz :: (RealFloat a) => (a, a, a) -> String
+baz (0, 0, 0) = "Origem"
+baz (x, y, z) = "Soma de Y e Z"
+    where x = y + z
