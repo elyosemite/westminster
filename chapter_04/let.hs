@@ -1,3 +1,4 @@
+import Distribution.CabalSpecVersion (specHasCommonStanzas)
 cylinder :: (RealFloat a) => a -> a -> a
 cylinder r h = 
     let sideArea = 2 * pi * r * h
@@ -33,3 +34,20 @@ coneArea r h =
     let pi = 3.14
         slantHeight = sqrt(r * r + h * h)
     in pi * r * (r + slantHeight)
+
+sphereArea :: Float -> Float
+sphereArea r =
+    let pi = 3.14
+    in 4 * pi * r * r
+
+parallelepipedArea :: Float -> Float -> Float -> Float
+parallelepipedArea a b c = let face1 = a * b; face2 = b * c; face3 = a * c in 2 * (face1 + face2 + face3)
+
+cubeArea :: Float -> Float
+cubeArea a = let face = a * a in 6 * face
+
+prismArea :: Float -> Float -> Float -> Float
+prismArea b h l = let baseArea = b * b; lateralArea = 2 * b * l in 2 * baseArea + lateralArea
+
+pyramidArea :: Float -> Float -> Float -> Float
+pyramidArea b h l = let baseArea = b * b; lateralArea = 2 * b * l in baseArea + lateralArea
