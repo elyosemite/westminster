@@ -54,3 +54,9 @@ isNothing :: Maybe a -> Bool
 isNothing m =
     case m of Nothing -> True
               Just _  -> False
+
+isLeft :: Either a b -> Bool
+isLeft e =
+    case e of Left _ -> True
+              Right _ -> False
+
