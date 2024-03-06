@@ -49,3 +49,8 @@ describeOrdering o =
     case o of LT -> "LT"
               EQ -> "EQ"
               GT -> "GT"
+
+isNothing :: Maybe a -> Bool
+isNothing m =
+    case m of Nothing -> True
+              Just _  -> False
