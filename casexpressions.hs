@@ -1,4 +1,11 @@
 -- Case expressions
+
+-- case expression of pattern -> result
+--                    pattern -> result
+--                    pattern -> result
+--                    pattern -> result
+--                    ...
+
 head' :: [a] -> a
 head' [] = error "No head for empty lists!"
 head' (x:_) = x
@@ -17,3 +24,7 @@ describeListV2 xs = "The list is " ++ what xs
     where what []  = "empty."
           what [x] = "a singleton list."
           what xs  = "a longer list."
+
+describeMaybe :: Maybe Int -> String
+describeMaybe m = case m of Nothing -> "Nada"
+                            Just x  -> "Just" ++ show x
