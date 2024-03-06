@@ -33,3 +33,8 @@ describeEither :: Either String Int -> String
 describeEither e = 
     case e of Left s -> s
               Right i -> show i
+
+firstElement :: (Show a) => [a] -> String
+firstElement xs =
+    case xs of []    -> "Vazia"
+               (x:_) -> show x
