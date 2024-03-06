@@ -1,6 +1,5 @@
-import Distribution.Simple.BuildTarget (readUserBuildTargets)
 cylinder :: (RealFloat a) => a -> a -> a
-cylinder r h = 
+cylinder r h =
     let sideArea = 2 * pi * r * h
         topArea = pi * r ^ 2
     in sideArea + 2 * topArea
@@ -24,7 +23,7 @@ trapezoidArea a b h =
     in (sumBase / 2) * h
 
 cylinderArea :: Float -> Float -> Float
-cylinderArea r h = 
+cylinderArea r h =
     let pi = 3.14
         baseArea = pi * r * r
     in 2 * baseArea + 2 * pi * r * h
@@ -32,7 +31,7 @@ cylinderArea r h =
 coneArea :: Float -> Float -> Float
 coneArea r h =
     let pi = 3.14
-        slantHeight = sqrt(r * r + h * h)
+        slantHeight = sqrt (r * r + h * h)
     in pi * r * (r + slantHeight)
 
 sphereArea :: Float -> Float
@@ -60,8 +59,8 @@ numberType n
 
 maxNumber :: (Ord a, Num a) => a -> a -> a -> a
 maxNumber x y z
-    | x >= y && z >= z = 
-        let result = x 
+    | x >= y && z >= z =
+        let result = x
         in result
     | y >= x && y >= z =
         let result = y
@@ -85,3 +84,15 @@ factorial :: (Eq a, Num a) => a -> a
 factorial n
   | n == 0    = let result = 1 in result
   | otherwise = let result = n * factorial (n-1) in result
+
+sendMessageToApp :: String -> String
+sendMessageToApp msg
+    | msg == "" = error "You must have provide a channel to sending message"
+    | msg == "WhatsApp" =
+        let pre_message = "Sending message to"
+            app_name = "WhatsApp"
+            message = "Hello, I'm a message written in Haskell to you!"
+        in pre_message ++ " " ++ app_name ++ " : " ++ message
+    | otherwise = let result = "Without app" in result
+    where
+        error = errorWithoutStackTrace
