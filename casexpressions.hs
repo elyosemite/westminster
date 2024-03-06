@@ -69,3 +69,9 @@ boolToInt :: Bool -> Int
 boolToInt b =
     case b of True -> 0
               False -> 1
+
+orderingToInt :: Ordering -> Int
+orderingToInt o =
+    case o of LT -> -1
+              EQ -> 0
+              GT -> 1
