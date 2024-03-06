@@ -65,3 +65,7 @@ isEmpty xs =
     case xs of [] -> True
                _ -> False
 
+boolToInt :: Bool -> Int
+boolToInt b =
+    case b of True -> 0
+              False -> 1
