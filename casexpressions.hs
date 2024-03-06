@@ -28,3 +28,8 @@ describeListV2 xs = "The list is " ++ what xs
 describeMaybe :: Maybe Int -> String
 describeMaybe m = case m of Nothing -> "Nada"
                             Just x  -> "Just" ++ show x
+
+describeEither :: Either String Int -> String
+describeEither e = 
+    case e of Left s -> s
+              Right i -> show i
