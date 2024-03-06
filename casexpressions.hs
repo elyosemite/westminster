@@ -60,3 +60,8 @@ isLeft e =
     case e of Left _ -> True
               Right _ -> False
 
+isEmpty :: [a] -> Bool
+isEmpty xs =
+    case xs of [] -> True
+               _ -> False
+
