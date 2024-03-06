@@ -43,3 +43,9 @@ describeBool :: Bool -> String
 describeBool b = 
     case b of True  -> "Verdadeiro"
               False -> "Falso"
+
+describeOrdering :: Ordering -> String
+describeOrdering o =
+    case o of LT -> "LT"
+              EQ -> "EQ"
+              GT -> "GT"
