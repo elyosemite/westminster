@@ -24,3 +24,7 @@ maximumV2 [] = error "maximum of empty list"
 maximumV2 [x] = x
 maximumV2 (x:xs) = max x (maximumV2 xs)
 
+replicate' :: (Num i, Ord i) => i -> a -> [a]
+replicate' n x
+    | n <= 0 = []
+    | otherwise = x:replicate' (n-1) x
