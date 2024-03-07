@@ -23,3 +23,4 @@ maximumV2 :: (Ord a) => [a] -> a
 maximumV2 [] = error "maximum of empty list"
 maximumV2 [x] = x
 maximumV2 (x:xs) = max x (maximumV2 xs)
+
