@@ -15,3 +15,6 @@ curryingAddNumbers x y = x + y
 -- Aplicando Partial Application
 addOne :: Int -> Int
 addOne = curryingAddNumbers 1
+
+addOneV2 :: RealFloat -> RealFloat
+addOneV2 x y = x + y
