@@ -7,14 +7,15 @@ compareWithHundred = compare 100
 addNumbers :: Int -> Int -> Int
 addNumbers x y = x + y
 
--- Aplicando Curring
+-- Aplicando Currying
 curryingAddNumbers :: Int -> (Int -> Int)
 curryingAddNumbers x y = x + y
 
+curryingAddTwo :: Int -> Int
+curryingAddTwo = (+ 2)
 
--- Aplicando Partial Application
-addOne :: Int -> Int
-addOne = curryingAddNumbers 1
+curryingMultipleBy :: Int -> (Int -> Int)
+curryingMultipleBy x = (* x)
 
-addOneV2 :: RealFloat -> RealFloat
-addOneV2 x y = x + y
+partialMult :: Int -> Int
+partialMult = curryingMultipleBy 5
