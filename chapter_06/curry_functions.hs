@@ -17,5 +17,17 @@ curryingAddTwo = (+ 2)
 curryingMultipleBy :: Int -> (Int -> Int)
 curryingMultipleBy x = (* x)
 
-partialMult :: Int -> Int
-partialMult = curryingMultipleBy 5
+multiply :: Int -> (Int -> Int)
+multiply x y = x * y
+
+-- description about me.
+-- You pass firstname and lastname and afterwards
+-- in another function you can pass age parameter
+myDescription :: String -> String -> (Int -> String)
+myDescription firstName lastName age = description
+    where description = "FirstName: " ++ firstName ++ " LastName: " ++ lastName ++ " Age: " ++ show age
+
+myDescriptionWithAge :: Int -> String
+myDescriptionWithAge = myDescription firstName lastName
+    where firstName = "Yuri"
+          lastName = "Melo"
