@@ -31,3 +31,16 @@ myDescriptionWithAge :: Int -> String
 myDescriptionWithAge = myDescription firstName lastName
     where firstName = "Yuri"
           lastName = "Melo"
+
+createGeneralReadme :: String -> (String -> (String -> String))
+createGeneralReadme title description tech = generalDescription
+    where generalDescription = "Title: " ++ title ++ " Description: " ++ description ++ " techs: " ++ tech
+
+createEmptyReadme :: String
+createEmptyReadme = createGeneralReadme "" "" ""
+
+createReadmeWithTitle :: String -> String
+createReadmeWithTitle title = createGeneralReadme title "" ""
+
+createReadmeWithDescription :: String -> String -> String
+createReadmeWithDescription title description = createGeneralReadme title description ""
