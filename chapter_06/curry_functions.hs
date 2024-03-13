@@ -32,15 +32,21 @@ myDescriptionWithAge = myDescription firstName lastName
     where firstName = "Yuri"
           lastName = "Melo"
 
+-- Create readme with parameters:
+-- * title, description, tech
 createGeneralReadme :: String -> (String -> (String -> String))
 createGeneralReadme title description tech = generalDescription
-    where generalDescription = "Title: " ++ title ++ " Description: " ++ description ++ " techs: " ++ tech
+    where generalDescription = "Title: " ++ title ++ "; Description: " ++ description ++ "; Techs: " ++ tech
 
-createEmptyReadme :: String
-createEmptyReadme = createGeneralReadme "" "" ""
+createReadmeWithTitle :: String -> (String -> (String -> String))
+createReadmeWithTitle = createGeneralReadme
 
-createReadmeWithTitle :: String -> String
-createReadmeWithTitle title = createGeneralReadme title "" ""
+createReadmeWithDescription :: String -> (String -> String)
+createReadmeWithDescription = createReadmeWithTitle "Empty Title"
 
-createReadmeWithDescription :: String -> String -> String
-createReadmeWithDescription title description = createGeneralReadme title description ""
+createReadmeWithTech :: String -> String
+createReadmeWithTech = createReadmeWithDescription ""
+
+createReadmePythonProject :: String -> (String -> String)
+createReadmePythonProject = createReadmeWithTitle title
+    where title = "Python Project"
