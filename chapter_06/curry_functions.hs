@@ -60,3 +60,19 @@ uncurriedAddition nums =
 
 sum' :: (Num a) => a -> (a -> a)
 sum' x y = x + y
+
+getContntryCodeFromCountryName :: (Num a) => String -> a
+getContntryCodeFromCountryName countryName
+    | countryName == "Brazil" = 55
+    | countryName == "Chile" = 56
+    | countryName == "Malaysia" = 60
+    | countryName == "South korea" = 82
+    | otherwise = 0
+
+getContinentByCountryCode :: (Num a, Ord a) => a -> String
+getContinentByCountryCode countryCode
+    | countryCode == 20 = "Africa"
+    | countryCode == 212 = "Africa"
+    | countryCode == 31 = "Europe"
+    | countryCode == 55 = "South and Central Americas"
+    | otherwise = "Empty"
