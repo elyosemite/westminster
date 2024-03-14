@@ -50,3 +50,13 @@ createReadmeWithTech = createReadmeWithDescription ""
 createReadmePythonProject :: String -> (String -> String)
 createReadmePythonProject = createReadmeWithTitle title
     where title = "Python Project"
+
+uncurriedAddition :: Num a => (a, a) -> a
+uncurriedAddition nums =
+    let
+        a = fst nums
+        b = snd nums
+    in a + b
+
+sum' :: (Num a) => a -> (a -> a)
+sum' x y = x + y
