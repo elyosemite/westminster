@@ -61,6 +61,20 @@ uncurriedAddition nums =
 sum' :: (Num a) => a -> (a -> a)
 sum' x y = x + y
 
-sumFive :: Int -> (Int -> (Int -> (Int -> (Int -> Int))))
-sumFive x y z t k = ownSum
-    where ownSum = x + y + z + t + k
+sumFour :: Int -> (Int -> (Int -> (Int -> Int)))
+sumFour x y z t = sumThree x y z + t
+
+sumThree :: Int -> (Int -> (Int -> Int))
+sumThree x y z = 
+    let firstSum  = sumTwo x y
+        secondSum = sumTwo firstSum z
+    in firstSum + secondSum
+
+sumTwo :: Int -> (Int -> Int)
+sumTwo x y = x + y
+
+divideByTen :: (Floating a) => a -> a
+divideByTen = (/10)
+
+isUpperAlphaNum :: Char -> Bool
+isUpperAlphaNum = (`elem` ['A'..'Z'])
