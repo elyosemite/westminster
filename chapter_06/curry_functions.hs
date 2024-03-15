@@ -32,15 +32,35 @@ myDescriptionWithAge = myDescription firstName lastName
     where firstName = "Yuri"
           lastName = "Melo"
 
+-- Create readme with parameters:
+-- * title, description, tech
 createGeneralReadme :: String -> (String -> (String -> String))
 createGeneralReadme title description tech = generalDescription
-    where generalDescription = "Title: " ++ title ++ " Description: " ++ description ++ " techs: " ++ tech
+    where generalDescription = "Title: " ++ title ++ "; Description: " ++ description ++ "; Techs: " ++ tech
 
-createEmptyReadme :: String
-createEmptyReadme = createGeneralReadme "" "" ""
+createReadmeWithTitle :: String -> (String -> (String -> String))
+createReadmeWithTitle = createGeneralReadme
 
-createReadmeWithTitle :: String -> String
-createReadmeWithTitle title = createGeneralReadme title "" ""
+createReadmeWithDescription :: String -> (String -> String)
+createReadmeWithDescription = createReadmeWithTitle "Empty Title"
 
-createReadmeWithDescription :: String -> String -> String
-createReadmeWithDescription title description = createGeneralReadme title description ""
+createReadmeWithTech :: String -> String
+createReadmeWithTech = createReadmeWithDescription ""
+
+createReadmePythonProject :: String -> (String -> String)
+createReadmePythonProject = createReadmeWithTitle title
+    where title = "Python Project"
+
+uncurriedAddition :: Num a => (a, a) -> a
+uncurriedAddition nums =
+    let
+        a = fst nums
+        b = snd nums
+    in a + b
+
+sum' :: (Num a) => a -> (a -> a)
+sum' x y = x + y
+
+sumFive :: Int -> (Int -> (Int -> (Int -> (Int -> Int))))
+sumFive x y z t k = ownSum
+    where ownSum = x + y + z + t + k
