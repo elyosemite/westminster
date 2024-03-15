@@ -72,3 +72,6 @@ sumThree x y z =
 
 sumTwo :: Int -> (Int -> Int)
 sumTwo x y = x + y
+
+divideByTen :: (Floating a) => a -> a
+divideByTen = (/10)
