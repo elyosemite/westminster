@@ -78,3 +78,6 @@ divideByTen = (/10)
 
 isUpperAlphaNum :: Char -> Bool
 isUpperAlphaNum = (`elem` ['A'..'Z'])
+
+subtractMinusTen :: Int -> Int
+subtractMinusTen number = (subtract 10) number

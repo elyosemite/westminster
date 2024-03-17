@@ -11,7 +11,6 @@ app f x = f x
 describeMe :: (String -> String) -> String -> String
 describeMe func name = func name
 
-
 -- transferBitcoinToWallet from("Yuri Melo") to("Igor Melo") BTC Quantity (10)
 transferBitcoinToWallet :: (String -> String -> Int -> String) -> String -> String -> Int -> String
 transferBitcoinToWallet func from to quantity = func from to quantity
