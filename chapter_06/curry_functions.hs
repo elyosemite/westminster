@@ -81,3 +81,6 @@ isUpperAlphaNum = (`elem` ['A'..'Z'])
 
 subtractMinusTen :: Int -> Int
 subtractMinusTen number = (subtract 10) number
+
+add :: Int -> Int -> Int
+add = (\x -> (\y -> x+y))
