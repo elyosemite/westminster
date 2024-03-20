@@ -25,3 +25,9 @@ zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
 
 flip' :: (a -> b -> c) -> b -> a -> c
 flip' f y x = f x y
+
+myFilter :: (a -> Bool) -> [a] -> [a]
+myFilter _ [] = []
+myFilter p (x:xs)
+    | p x = x : myFilter p xs
+    | otherwise = myFilter p xs
