@@ -1,3 +1,4 @@
+import Data.Char (toUpper, isSpace, isUpper)
 applytwice :: (a -> a) -> a -> a
 applytwice f x = f (f x)
 
@@ -42,3 +43,34 @@ quicksort (x:xs) =
 largestDivisible :: (Integral a) => a
 largestDivisible = head (filter p [100000, 99999..])
     where p x = x `mod` 3892 == 0
+
+doubleList :: [Int] -> [Int]
+doubleList = map (* 2)
+
+capitalizeWords :: [String] -> [String]
+capitalizeWords = map (map toUpper)
+
+filterEvenNumbers :: [Int] -> [Int]
+filterEvenNumbers = filter even
+
+removeVowels :: [String] -> [String]
+removeVowels = map (filter (`notElem` "aeiouAEIOU"))
+
+negateList :: [Int] -> [Int]
+negateList = map negate
+
+filterLongWords :: [String] -> [String]
+filterLongWords = filter (\word -> length word > 3)
+
+doubleOddNumbers :: [Int] -> [Int]
+doubleOddNumbers = map (\x -> if odd x then x * 2 else x)
+
+filterPositiveNumbers :: [Int] -> [Int]
+filterPositiveNumbers = filter (> 0)
+
+trimWhitespace :: [String] -> [String]
+trimWhitespace = map (dropWhile isSpace . reverse . dropWhile isSpace . reverse)
+
+filterUppercaseWords :: [String] -> [String]
+filterUppercaseWords = filter (all isUpper)
+
