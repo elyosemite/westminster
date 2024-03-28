@@ -41,8 +41,8 @@ quicksort (x:xs) =
     in smallerSorted ++ [x] ++ biggerSorted
 
 largestDivisible :: (Integral a) => a
-largestDivisible = head (filter p [100000, 99999..])
-    where p x = x `mod` 3892 == 0
+largestDivisible = head (filter calculateTheMod [100000, 99999..])
+    where calculateTheMod x = x `mod` 3892 == 0
 
 doubleList :: [Int] -> [Int]
 doubleList = map (* 2)
@@ -74,3 +74,8 @@ trimWhitespace = map (dropWhile isSpace . reverse . dropWhile isSpace . reverse)
 filterUppercaseWords :: [String] -> [String]
 filterUppercaseWords = filter (all isUpper)
 
+chain :: (Integral a) => a -> [a]
+chain 1 = [1]
+chain n
+    | even n = n:chain (n `div` 2)
+    | odd n  = n:chain (n*3 + 1)
