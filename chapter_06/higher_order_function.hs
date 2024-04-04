@@ -83,3 +83,11 @@ chain n
 numLongChains :: Int
 numLongChains = length (filter isLong (map chain [1..100]))
     where isLong xs = length xs > 15
+
+crazy :: (Integral a) => a -> [a]
+crazy a
+    | a <= 1 = [1]
+    | maxLength <= 10 && even a = a:chain (a `div` 2)
+    | maxLength <= 10 && odd  a = a:chain (a * 3 + 1)
+    | otherwise = [1]
+    where maxLength = 10
