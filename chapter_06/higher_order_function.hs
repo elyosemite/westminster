@@ -74,11 +74,18 @@ trimWhitespace = map (dropWhile isSpace . reverse . dropWhile isSpace . reverse)
 filterUppercaseWords :: [String] -> [String]
 filterUppercaseWords = filter (all isUpper)
 
+-- Collatz Sequence
 chain :: (Integral a) => a -> [a]
 chain 1 = [1]
 chain n
     | even n = n:chain (n `div` 2)
     | odd  n  = n:chain (n*3 + 1)
+
+chain2 :: (Integral a) => a -> [a]
+chain2 1 = [1]
+chain2 n
+    | even n = n:chain2 (n `div` 2)
+    | odd  n = n:chain2 (n*3 + 1)
 
 numLongChains :: Int
 numLongChains = length (filter isLong (map chain [1..100]))
