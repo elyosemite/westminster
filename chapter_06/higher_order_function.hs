@@ -87,10 +87,6 @@ chain2 n
     | even n = n:chain2 (n `div` 2)
     | odd  n = n:chain2 (n*3 + 1)
 
-numLongChains :: Int
-numLongChains = length (filter isLong (map chain [1..100]))
-    where isLong xs = length xs > 15
-
 crazy :: (Integral a) => a -> [a]
 crazy a
     | a <= 1 = [1]
@@ -98,3 +94,10 @@ crazy a
     | maxLength <= 10 && odd  a = a:chain (a * 3 + 1)
     | otherwise = [1]
     where maxLength = 10
+
+numLongFromArray :: Int
+numLongFromArray = length (filter isLong (map chain [1..100]))
+    where isLong xs = length xs > 15
+
+numLongChains :: Int
+numLongChains = length(filter (\xs -> length xs > 15) (map chain [1..100]))
