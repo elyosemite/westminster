@@ -1,3 +1,5 @@
+import Distribution.Compat.CharParsing (integral)
+import System.Win32 (xBUTTON1)
 -- Collatz Sequence
 chain :: (Integral a) => a -> [a]
 chain 1 = [1]
@@ -82,4 +84,15 @@ filterMoreThemX :: (Integral a) => [a] -> a -> [a]
 filterMoreThemX _ x
     | x < 0  = [-1]
     | x == 0 = [0]
-filterMoreThemX arr maxValue = foldl (\acc x -> if x > maxValue then acc ++ [x] else acc) [] arr
+filterMoreThemX xs maxValue = foldl (\acc x -> if x > maxValue then acc ++ [x] else acc) [] xs
+
+filterLessThem :: (Integral a) => [a] -> a -> [a]
+filterLessThem _ x
+    | x < 0 = [-1]
+    | x == 0 = [0]
+filterLessThem xs minValue = foldl (\acc x -> if x < minValue then acc ++ [x] else acc) [] xs
+
+processList :: [Int] -> Int -> Int -> String -> [String]
+processList nums low high suffix = foldl (\acc x -> if x >= low && x <= high
+                                                    then acc ++ [show x ++ suffix]
+                                                    else acc) [] nums
