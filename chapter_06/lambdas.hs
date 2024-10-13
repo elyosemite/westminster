@@ -25,7 +25,7 @@ addThree :: (Num a) => a -> a -> a -> a
 addThree = \x -> \y -> \z -> x + y + z
 
 sum' :: (Num a) => [a] -> a
-sum' xs = foldl (\acc x -> acc + x) 0 xs
+sum' = foldl (\acc x -> acc + x) 0
 
 -- Exercícios Básicos
 
@@ -34,7 +34,7 @@ sumElementsInArray :: (Num a) => [a] -> a
 sumElementsInArray = foldl (+) 0
 
 -- 2. Produto de uma lista
-productElementsInArray :: (Num a) => [a] -> as
+productElementsInArray :: (Num a) => [a] -> a
 productElementsInArray = foldl (*) 1
 
 -- 3. Verificação de todos verdadeiros:
@@ -69,3 +69,17 @@ revert = foldl (flip (:)) []
 sumPositivies :: [Int] -> Int
 sumPositivies = foldr (\x acc -> if x > 0 then x + acc else acc) 0
 
+-- Exercícios de Medianos
+
+-- 1. Filtrar números pares:
+filterPairs :: [Int] -> [Int]
+filterPairs = foldl (\acc x -> if even x then acc ++ [x] else acc) []
+
+filterFoo :: (Integral a) => [a] -> [a]
+filterFoo = foldl (\acc x -> if even x then acc ++ [x] else acc) []
+
+filterMoreThemX :: (Integral a) => [a] -> a -> [a]
+filterMoreThemX _ x
+    | x < 0  = [-1]
+    | x == 0 = [0]
+filterMoreThemX arr maxValue = foldl (\acc x -> if x > maxValue then acc ++ [x] else acc) [] arr
