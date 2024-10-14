@@ -96,3 +96,41 @@ processList :: [Int] -> Int -> Int -> String -> [String]
 processList nums low high suffix = foldl (\acc x -> if x >= low && x <= high
                                                     then acc ++ [show x ++ suffix]
                                                     else acc) [] nums
+
+-- 2. Palíndromo:
+palindromo :: String -> Bool
+palindromo str = str == foldr(:) [] str
+
+-- 3. Agrupar elementos:
+agrupar :: Eq a => [a] -> [[a]]
+agrupar = foldr (\x acc -> if not (null acc) && x == head (head acc) 
+                           then (x : head acc) : tail acc
+                           else [x] : acc) []
+
+-- 4. Produto escalar:
+produtoEscalar :: [Int] -> [Int] -> Int
+produtoEscalar xs ys = foldl (+) 0 (zipWith (*) xs ys)
+
+-- 5. Remover duplicatas:
+removerDuplicatas :: Eq a => [a] -> [a]
+removerDuplicatas = foldr (\x acc -> if x `elem` acc then acc else x : acc) []
+
+-- 6. Contar palavras:
+countWords :: String -> Int
+countWords = foldl (\acc _ -> acc + 1) 0 . words
+
+-- 7. Fatorial com foldr:
+factorial :: Int -> Int
+factorial n = foldr (*) 1 [1..n]
+
+-- 8. Aplicar função em pares:
+aplicarEmPares :: (a -> a -> a) -> [a] -> [a]
+aplicarEmPares f xs = foldl (\acc (x,y) -> acc ++ [f x y]) [] (zip xs (tail xs))
+
+-- 9. Soma de prefixos:
+somaPrefixos :: [Int] -> [Int]
+somaPrefixos = scanl1 (+)
+
+-- 10. Calcular média:
+media :: [Int] -> Double
+media xs = fromIntegral (foldl (+) 0 xs) / fromIntegral (length xs)
