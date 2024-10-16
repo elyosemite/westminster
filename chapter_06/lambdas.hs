@@ -29,7 +29,7 @@ addThree = \x -> \y -> \z -> x + y + z
 sum' :: (Num a) => [a] -> a
 sum' = foldl (\acc x -> acc + x) 0
 
--- Exercícios Básicos
+-- EXERCÍCIOS BÁSICOS
 
 -- 1. Soma de uma lista:
 sumElementsInArray :: (Num a) => [a] -> a
@@ -71,7 +71,7 @@ revert = foldl (flip (:)) []
 sumPositivies :: [Int] -> Int
 sumPositivies = foldr (\x acc -> if x > 0 then x + acc else acc) 0
 
--- Exercícios de Medianos
+-- EXERCÍCIOS MÉDIOS
 
 -- 1. Filtrar números pares:
 filterPairs :: [Int] -> [Int]
@@ -134,3 +134,28 @@ somaPrefixos = scanl1 (+)
 -- 10. Calcular média:
 media :: [Int] -> Double
 media xs = fromIntegral (foldl (+) 0 xs) / fromIntegral (length xs)
+
+-- EXERCÍCIOS COMPLEXOS
+
+-- 1. Transformar uma árvore binária:
+-- Pesquisar depois como funciona os data types e funções : dir & esq
+data Arvore a = Vazia | Nodo a (Arvore a) (Arvore a)
+
+percursoEmOrdem :: Arvore a -> [a]
+percursoEmOrdem Vazia = []
+percursoEmOrdem (Nodo v esq dir) = foldr (:) [] (percursoEmOrdem esq ++ [v] ++ percursoEmOrdem dir)
+
+
+-- 2. Compressão de lista:
+comprimirLista :: [Int] -> [(Int, Int)]
+comprimirLista = foldl (\acc x -> case acc of
+                        [] -> [(x, x)]
+                        (start, end):rest -> if end + 1 == x then (start, x):rest else (x, x):acc) []
+
+-- 3. Desenrolar uma lista de listas:
+combinacoes :: [[a]] -> [[a]]
+combinacoes = foldr (\xs acc -> [x:y | x <- xs, y <- acc]) [[]]
+
+-- 4. Implementar map usando fold:
+mapFoldr :: (a -> b) -> [a] -> [b]
+mapFoldr f = foldr (\x acc -> f x : acc) []
