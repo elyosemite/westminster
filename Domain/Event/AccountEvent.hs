@@ -1,6 +1,7 @@
 module Domain.Event.AccountEvent where
 
-import Domain.ValueObjects (AccountNumber)
+import Data.Time.Clock (UTCTime)
+import Domain.ValueObject.AccountNumber
 
 data AccountEvent
   = DepositOccurred AccountNumber Double UTCTime

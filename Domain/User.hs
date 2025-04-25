@@ -1,8 +1,9 @@
 module Domain.User where
 
 import Data.Time.Clock (UTCTime)
-import Domain.ValueObjects
+import Domain.ValueObject.UserId
 import Domain.ValueObject.Email
+import Domain.ValueObject.Name
 
 data User = User
   { userId :: UserId,
