@@ -8,7 +8,7 @@ mkEmail :: String -> Either String Email
 mkEmail email
     | null email = Left "Email cannot be empty"
     | any isSpace email = Left "Email cannot contain whitespace"
-    | not ('@' `elem` email) = Left "Email must contain '@'"
+    | '@' `notElem` email = Left "Email must contain '@'"
     | otherwise = Right (Email email)
 
 getEmailString :: Email -> String
