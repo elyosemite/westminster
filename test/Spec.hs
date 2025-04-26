@@ -5,7 +5,6 @@ import Domain.Event.AccountEvent (AccountEvent (..))
 import Domain.ValueObject.AccountNumber (AccountNumber (..))
 import Domain.ValueObject.UserId (UserId (..))
 import Test.Hspec
---import Domain.Entity.Account (isEventInAccount, domainEvents, Account)
 import Domain.Entity.Account
 
 -- Dummy UserId for testing
@@ -36,3 +35,17 @@ main = hspec $ do
           length events `shouldBe` 2
           isEventInAccount account (AccountCreated (AccountNumber $ show dummyTime) dummyTime) `shouldBe` True
           isEventInAccount account (AccountActivated (AccountNumber $ show dummyTime) dummyTime) `shouldBe` True
+    
+    it "should not deposit a negative amount" $ do
+      let account = createAccount dummyUserId dummyTime
+      let depositResult = deposit account (-50.0) dummyTime
+      case depositResult of
+        Left (InvalidDepositAmount amt) -> amt `shouldBe` (-50.0)
+        _ -> expectationFailure "Expected InvalidDepositAmount error"
+    
+    it "should not deposit zero amount" $ do
+      let account = createAccount dummyUserId dummyTime
+      let depositResult = deposit account 0.0 dummyTime
+      case depositResult of
+        Left (InvalidDepositAmount amt) -> amt `shouldBe` 0.0
+        _ -> expectationFailure "Expected InvalidDepositAmount error"

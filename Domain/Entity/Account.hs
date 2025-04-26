@@ -51,7 +51,7 @@ data DomainError
 
 deposit :: Account -> Double -> UTCTime -> Either DomainError (Account, AccountEvent)
 deposit account amount time
-  | amount < 0 = Left $ InvalidDepositAmount amount
+  | amount <= 0 = Left $ InvalidDepositAmount amount
   | otherwise =
       let newBalance = Balance $ getBalance (accountBalance account) + amount
       in Right (account {accountBalance = newBalance}, DepositOccurred (accountNumber account) amount time)
