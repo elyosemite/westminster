@@ -9,12 +9,14 @@ import Data.Time.Clock (UTCTime)
 import Domain.ValueObject.UserId
 import Domain.ValueObject.Email
 import Domain.ValueObject.Name
+import Domain.Event.UserEvent (UserEvent (..))
 
 data User = User
   { userId :: UserId,
     userName :: Name,
     userEmail :: Email,
     userCreatedAt :: UTCTime
+    domainEvents :: [UserEvent]
   }
   deriving (Show, Eq)
 
