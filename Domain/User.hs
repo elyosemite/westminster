@@ -1,4 +1,9 @@
-module Domain.User where
+module Domain.User
+(
+  User (..),
+  createUser,
+)
+where
 
 import Data.Time.Clock (UTCTime)
 import Domain.ValueObject.UserId

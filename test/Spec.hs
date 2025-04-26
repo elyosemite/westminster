@@ -1,11 +1,12 @@
 module Main where
 
 import Data.Time.Clock (UTCTime)
-import Domain.Entity.Account
 import Domain.Event.AccountEvent (AccountEvent (..))
 import Domain.ValueObject.AccountNumber (AccountNumber (..))
 import Domain.ValueObject.UserId (UserId (..))
 import Test.Hspec
+--import Domain.Entity.Account (isEventInAccount, domainEvents, Account)
+import Domain.Entity.Account
 
 -- Dummy UserId for testing
 dummyUserId :: UserId
@@ -30,3 +31,8 @@ main = hspec $ do
               amt `shouldBe` 100.0
               n `shouldContain` "1998-01-12 23:00:00 UTC"
             _ -> expectationFailure "Unexpected event type"
+      case account of
+        Account { domainEvents = events } -> do
+          length events `shouldBe` 2
+          isEventInAccount account (AccountCreated (AccountNumber $ show dummyTime) dummyTime) `shouldBe` True
+          isEventInAccount account (AccountActivated (AccountNumber $ show dummyTime) dummyTime) `shouldBe` True

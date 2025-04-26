@@ -1,4 +1,8 @@
-module Domain.Event.AccountEvent where
+module Domain.Event.AccountEvent 
+(
+  AccountEvent (..),
+)
+where
 
 import Data.Time.Clock (UTCTime)
 import Domain.ValueObject.AccountNumber
