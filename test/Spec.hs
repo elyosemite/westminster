@@ -2,23 +2,20 @@ module Main where
 
 import Test.Hspec
 import Data.Time.Clock (UTCTime)
--- import Domain.Event.AccountEvent (AccountEvent (..))
--- import Domain.ValueObject.AccountNumber (AccountNumber (..))
 import Domain.ValueObject.UserId
--- import Domain.Entity.Account
 import qualified Domain.ValueObject.ProfileSpec as ProfileSpec
+import qualified Domain.ValueObject.BalanceSpec as BalanceSpec
 
--- Dummy UserId for testing
 dummyUserId :: UserId
 dummyUserId = UserId "john dow"
 
--- A fixed UTCTime for testing; in real cases use a constant value.
 dummyTime :: UTCTime
 dummyTime = read "1998-01-12 23:00:00 UTC"
 
 main :: IO ()
 main = hspec $ do
   ProfileSpec.spec
+  BalanceSpec.spec
   -- describe "Account.deposit" $ do
   --   it "should deposit a positive amount" $ do
   --     let account = createAccount dummyUserId dummyTime

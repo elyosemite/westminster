@@ -135,8 +135,10 @@ test-suite tests
       westminster,
       time
   other-modules:
-     Domain.ValueObject.ProfileSpec
+      Domain.ValueObject.ProfileSpec
+    , Domain.ValueObject.BalanceSpec
     , Domain.ValueObject.Email
     , Domain.ValueObject.Name
     , Domain.ValueObject.Profile
     , Domain.ValueObject.UserId
+    , Domain.ValueObject.Balance

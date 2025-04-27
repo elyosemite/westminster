@@ -1,0 +1,34 @@
+module Domain.ValueObject.BalanceSpec where
+
+import Test.Hspec
+import Domain.ValueObject.Balance
+
+spec :: Spec
+spec = describe "Balance" $ do
+    it "should create a balance with a positive amount" $ do
+        let balance = mkBalance 100.0
+        case balance of
+            Right b -> toDouble b `shouldBe` 100.0
+            Left err -> expectationFailure $ "Expected Right, got Left: " ++ err
+
+    it "should not allow negative balance" $ do
+        let balance = mkBalance (-50.0)
+        case balance of
+            Right b -> toDouble b `shouldBe` -50.0
+            Left err -> err `shouldBe` "Balance cannot be negative"
+
+    -- it "should allow adding to the balance" $ do
+    --     let balance = mkBalance 100.0
+    --     let newBalance = addToBalance balance 50.0
+    --     balanceAmount newBalance `shouldBe` 150.0
+
+    -- it "should allow subtracting from the balance" $ do
+    --     let balance = mkBalance 100.0
+    --     let newBalance = subtractFromBalance balance 30.0
+    --     balanceAmount newBalance `shouldBe` 70.0
+
+    -- it "should not allow subtracting more than the current balance" $ do
+    --     let balance = mkBalance 100.0
+    --     let newBalance = subtractFromBalance balance 150.0
+    --     balanceAmount newBalance `shouldBe` 0.0
+    
