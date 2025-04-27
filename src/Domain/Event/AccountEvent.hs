@@ -1,6 +1,6 @@
-module Domain.Event.AccountEvent 
+module Domain.Event.AccountEvent
 (
-  AccountEvent (..),
+  AccountEvent (..)
 )
 where
 

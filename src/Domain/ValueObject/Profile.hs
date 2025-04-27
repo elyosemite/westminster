@@ -1,13 +1,9 @@
-module Domain.ValueObject.Profile
-  ( Profile (..),
-    createProfile,
-  )
-where
+module Domain.ValueObject.Profile where
 
 import Data.Time.Clock (UTCTime)
 import Domain.ValueObject.Email (Email (..))
 import Domain.ValueObject.Name (Name (..))
-import Domain.ValueObject.UserId (UserId (..))
+import Domain.ValueObject.UserId
 
 data Profile = Profile
   { profileId :: String,
@@ -20,9 +16,8 @@ data Profile = Profile
   deriving (Show, Eq)
 
 createProfile :: UserId -> String -> String -> UTCTime -> Profile
-createProfile userId name email createdAt =
+createProfile userIdentifier name email createdAt =
   let profileIdentifier = "profile-" ++ show createdAt
-      profileName = Name Name
-      profileEmail = Email email
-      profileCreatedAt = createdAt
-   in Profile profileIdentifier userId profileName profileEmail profileCreatedAt createdAt
+      parsedName = Name name
+      parsedEmail = Email email
+   in Profile profileIdentifier userIdentifier parsedName parsedEmail createdAt createdAt
