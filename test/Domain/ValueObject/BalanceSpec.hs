@@ -17,10 +17,13 @@ spec = describe "Balance" $ do
             Right b -> toDouble b `shouldBe` -50.0
             Left err -> err `shouldBe` "Balance cannot be negative"
 
-    -- it "should allow adding to the balance" $ do
-    --     let balance = mkBalance 100.0
-    --     let newBalance = addToBalance balance 50.0
-    --     balanceAmount newBalance `shouldBe` 150.0
+    it "should allow adding to the balance" $ do
+        let initialBalance = mkBalance 100.0
+        case initialBalance of
+            Left err -> expectationFailure $ "Failed to create initial balance: " ++ err
+            Right bal -> do
+                let newBalance = addBalance bal 50.0
+                newBalance `shouldBe` 150.0
 
     -- it "should allow subtracting from the balance" $ do
     --     let balance = mkBalance 100.0
