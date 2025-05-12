@@ -1,10 +1,6 @@
-module Domain.Event.UserEvent
-  ( UserEvent (..),
-    UserCreated (..),
-    UserDeleted (..),
-    UserUpdated (..),
-  )
-where
+module Domain.Event.UserEvent where
+
+import Domain.ValueObject.UserId (UserId)
 
 data UserEvent
   = UserCreated UserId

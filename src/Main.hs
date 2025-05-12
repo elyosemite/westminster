@@ -1,4 +1,4 @@
-import Domain.User
+import Domain.Entity.User
 import Data.Time.Clock (getCurrentTime)
 
 main :: IO ()
