@@ -19,7 +19,7 @@ addBalance (Balance b) value
     | value <= 0 = Left "Cannot insert thios value"
     | otherwise = mkBalance (b + value)
 
-subtractBalance :: Balance -> Balance -> Either String Balance
-subtractBalance (Balance a) (Balance b)
+subtractBalance :: Balance -> Double -> Either String Balance
+subtractBalance (Balance a) b
     | a < b = Left "Insufficient balance"
     | otherwise = mkBalance (a - b)
