@@ -27,12 +27,12 @@ spec = describe "Balance" $ do
           Left err -> expectationFailure $ "Failed to add new value to balance: " ++ err
           Right bal2 -> toDouble bal2 `shouldBe` 150.0
 
--- it "should allow subtracting from the balance" $ do
---     let balance = mkBalance 100.0
---     let newBalance = subtractFromBalance balance 30.0
---     balanceAmount newBalance `shouldBe` 70.0
-
--- it "should not allow subtracting more than the current balance" $ do
---     let balance = mkBalance 100.0
---     let newBalance = subtractFromBalance balance 150.0
---     balanceAmount newBalance `shouldBe` 0.0
+  it "should allow subtracting from the balance" $ do
+    let initialBalance = mkBalance 100.0
+    case initialBalance of
+      Left err -> expectationFailure $ "Failed to create init balance" ++ err
+      Right bal -> do
+        let newBalance = subtractBalance bal 90
+        case newBalance of
+          Left err -> expectationFailure $ "Failed to subtract new value from balance" ++ err
+          Right bal2 -> 10 `shouldBe` toDouble bal2
