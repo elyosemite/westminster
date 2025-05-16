@@ -1,7 +1,7 @@
 module Domain.ValueObject.Profile where
 
 import Data.Time.Clock (UTCTime)
-import Domain.ValueObject.Email (Email (..))
+import Domain.ValueObject.Email
 import Domain.ValueObject.Name (Name (..))
 import Domain.ValueObject.UserId
 

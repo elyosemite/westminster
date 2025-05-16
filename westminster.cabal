@@ -90,18 +90,7 @@ executable westminster
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
-    other-modules:
-        Domain.ValueObject.Balance
-      , Domain.ValueObject.Email
-      , Domain.ValueObject.Name
-      , Domain.ValueObject.AccountNumber
-      , Domain.ValueObject.UserId
-      , Domain.ValueObject.Profile
-      , Domain.Event.AccountEvent
-      , Domain.Event.UserEvent
-      , Domain.Entity.Account
-      , Domain.Entity.User
-
+    -- other-modules:
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 
@@ -115,6 +104,7 @@ executable westminster
         sqlite-simple,
         text,
         time,
+        westminster
     -- Directories containing source files.
     hs-source-dirs:   src
 
@@ -137,8 +127,3 @@ test-suite tests
   other-modules:
       Domain.ValueObject.ProfileSpec
     , Domain.ValueObject.BalanceSpec
-    , Domain.ValueObject.Email
-    , Domain.ValueObject.Name
-    , Domain.ValueObject.Profile
-    , Domain.ValueObject.UserId
-    , Domain.ValueObject.Balance
