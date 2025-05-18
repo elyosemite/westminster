@@ -66,6 +66,7 @@ library
       , Domain.ValueObject.AccountNumber
       , Domain.ValueObject.UserId
       , Domain.ValueObject.Profile
+      , Domain.ValueObject.Phone
       , Domain.Event.AccountEvent
       , Domain.Event.UserEvent
       , Domain.Entity.Account
@@ -127,3 +128,4 @@ test-suite tests
   other-modules:
       Domain.ValueObject.ProfileSpec
     , Domain.ValueObject.BalanceSpec
+    , Domain.ValueObject.PhoneSpec

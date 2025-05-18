@@ -5,6 +5,7 @@ import Data.Time.Clock (UTCTime)
 import Domain.ValueObject.UserId
 import qualified Domain.ValueObject.ProfileSpec as ProfileSpec
 import qualified Domain.ValueObject.BalanceSpec as BalanceSpec
+import qualified Domain.ValueObject.PhoneSpec as PhoneSpec
 
 dummyUserId :: UserId
 dummyUserId = UserId "john dow"
@@ -16,6 +17,7 @@ main :: IO ()
 main = hspec $ do
   ProfileSpec.spec
   BalanceSpec.spec
+  PhoneSpec.spec
   -- describe "Account.deposit" $ do
   --   it "should deposit a positive amount" $ do
   --     let account = createAccount dummyUserId dummyTime
