@@ -12,3 +12,4 @@ spec = describe "formatPhone" $ do
   it "it must parse number with extension 'x'" $ do
     parsePhone "5511999998888x1234"
       `shouldBe` Right (Phone "55" "11" "999998888" (Just "1234") Mobile)
+      
