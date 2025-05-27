@@ -6,6 +6,7 @@ import Domain.ValueObject.UserId
 import qualified Domain.ValueObject.ProfileSpec as ProfileSpec
 import qualified Domain.ValueObject.BalanceSpec as BalanceSpec
 import qualified Domain.ValueObject.PhoneSpec as PhoneSpec
+import Domain.Entity.UserSpec as UserSpec
 
 dummyUserId :: UserId
 dummyUserId = UserId "john dow"
@@ -18,6 +19,7 @@ main = hspec $ do
   ProfileSpec.spec
   BalanceSpec.spec
   PhoneSpec.spec
+  UserSpec.spec
   -- describe "Account.deposit" $ do
   --   it "should deposit a positive amount" $ do
   --     let account = createAccount dummyUserId dummyTime

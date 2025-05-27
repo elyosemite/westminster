@@ -129,3 +129,4 @@ test-suite tests
       Domain.ValueObject.ProfileSpec
     , Domain.ValueObject.BalanceSpec
     , Domain.ValueObject.PhoneSpec
+    , Domain.Entity.UserSpec

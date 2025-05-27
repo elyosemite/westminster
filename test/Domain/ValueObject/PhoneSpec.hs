@@ -4,7 +4,7 @@ import Domain.ValueObject.Phone
 import Test.Hspec
 
 spec :: Spec
-spec = describe "formatPhone" $ do
+spec = describe "Phone" $ do
   it "format phone with extension" $ do
     let phone = Phone "55" "11" "999998888" (Just "1234") Work
     formatPhone phone `shouldBe` "+55 (11) 999998888 ext. 1234 [Work]"
