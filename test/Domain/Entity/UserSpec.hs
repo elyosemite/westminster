@@ -25,9 +25,9 @@ spec = describe "User" $ do
 
   it "Deactivate a user" $ do
     let deactivatedUser = deactiveUser user
-    active deactivatedUser `shouldBe` False
-    domainEvents deactivatedUser `shouldBe` [UserDeactivated (userId user)]
-    userId deactivatedUser `shouldBe` userId user
-    userName deactivatedUser `shouldBe` userName user
-    userEmail deactivatedUser `shouldBe` userEmail user
+    active        deactivatedUser `shouldBe` False
+    domainEvents  deactivatedUser `shouldBe` [UserDeactivated (userId user)]
+    userId        deactivatedUser `shouldBe` userId user
+    userName      deactivatedUser `shouldBe` userName user
+    userEmail     deactivatedUser `shouldBe` userEmail user
     userCreatedAt deactivatedUser `shouldBe` userCreatedAt user
