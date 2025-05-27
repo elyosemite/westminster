@@ -1,8 +1,6 @@
 module Domain.ValueObject.Phone where
 
 import Data.Char (isDigit)
-import Data.Maybe (listToMaybe)
-import Data.List (isPrefixOf)
 
 data PhoneType = Mobile | Home | Work deriving (Show, Eq)
 
