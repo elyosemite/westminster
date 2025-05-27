@@ -20,6 +20,6 @@ dummyTime = read "1998-01-12 23:00:00 UTC"
 spec :: Spec
 spec = describe "Profile" $ do
     it "should create a profile with valid data" $ do
-      let profile = createProfile dummyUserId dummyName dummyEmail dummyTime
+      let profile = createProfile dummyUserId dummyName dummyEmail "5511999998888x1234" dummyTime
       userId profile `shouldBe` dummyUserId
       profileCreatedAt profile `shouldBe` dummyTime
