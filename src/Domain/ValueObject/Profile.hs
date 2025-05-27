@@ -23,4 +23,6 @@ createProfile userIdentifier name email phone createdAt =
       parsedName = Name name
       parsedEmail = Email email
       parsedPhone = parsePhone phone
-   in Profile profileIdentifier userIdentifier parsedName parsedEmail [parsedPhone] createdAt createdAt
+   in case parsedPhone of
+        Left err -> error $ "Invalid phone number: " ++ err
+        Right phoneList -> Profile profileIdentifier userIdentifier parsedName parsedEmail [phoneList] createdAt createdAt
