@@ -21,4 +21,5 @@ data UserEvent
   | UserPasswordResetCompleted UserId
   | UserAccountActivated UserId
   | UserAccountDeactivated UserId
+  | UserDeactivated UserId
   deriving (Show, Eq)
