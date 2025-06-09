@@ -20,7 +20,7 @@ spec = describe "User" $ do
         userCreatedAt = read "2023-10-01 12:00:00 UTC",
         domainEvents = []
       }
-    userCreatedAt user `shouldBe` (read "2023-10-01 12:00:00 UTC")
+    userCreatedAt user `shouldBe` read "2023-10-01 12:00:00 UTC"
     domainEvents user `shouldBe` []
 
   it "Deactivate a user" $ do
