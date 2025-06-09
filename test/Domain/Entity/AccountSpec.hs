@@ -3,7 +3,6 @@ module Domain.Entity.AccountSpec where
 import Domain.Entity.Account
 import Domain.ValueObject.UserId
 import Domain.ValueObject.AccountNumber
-import Domain.ValueObject.Balance
 import Domain.Event.AccountEvent
 import Test.Hspec
 
