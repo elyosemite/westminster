@@ -16,7 +16,7 @@ toDouble (Balance value) = value
 
 addBalance :: Balance -> Double -> Either String Balance
 addBalance (Balance b) value
-    | value <= 0 = Left "Cannot insert thios value"
+    | value <= 0 = Left "Cannot insert this value"
     | otherwise = mkBalance (b + value)
 
 subtractBalance :: Balance -> Double -> Either String Balance
