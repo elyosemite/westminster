@@ -28,3 +28,7 @@ spec = describe "Account" $ do
   it "Account can not deposit zero value to the balance" $ do
     let depositZeroDollar = deposit account 0.0 (read "2023-10-01 12:00:00 UTC")
     depositZeroDollar `shouldBe` Left (InvalidDepositAmount 0.0)
+  
+  it "Account can not deposit negative value to the balance" $ do
+    let depositNegativeDollar = deposit account (-100.0) (read "2023-10-01 12:00:00 UTC")
+    depositNegativeDollar `shouldBe` Left (InvalidDepositAmount (-100.0))

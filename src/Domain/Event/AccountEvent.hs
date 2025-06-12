@@ -15,6 +15,6 @@ data AccountEvent
   | TransferOccurred AccountNumber AccountNumber Double UTCTime
   | FeeChanged AccountNumber Double UTCTime
   | AccountDetailsUpdated AccountNumber String UTCTime
-  | AccountSuspended AccountNumber UTCTime String -- the last argumento is for reason
+  | AccountSuspended AccountNumber UTCTime String
   | AccountActivated AccountNumber UTCTime
   deriving (Show, Eq)
