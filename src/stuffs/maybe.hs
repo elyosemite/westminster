@@ -1,3 +1,5 @@
+module Stuffs.Maybe where
+
 succMaybe :: Maybe Int -> Maybe Int
 succMaybe (Just x) = Just (x+1)
 succMaybe _ = Nothing
@@ -10,5 +12,5 @@ divideTwoNumber _ Nothing = Nothing
 divideTwoNumber Nothing _ = Nothing
 divideTwoNumber (Just a) (Just b) = 
     case b of
-        0 -> Just 0
-        b -> Just (a `div` b)
+        0 -> Nothing
+        _ -> Just (a `div` b)

@@ -1,6 +1,8 @@
+module Stuffs.Functionparameters where
+
 lucky :: (Integral a) => a -> String
 lucky 7 = "LUCKY NUMBER SEVEN!"
-lucky x = "Sorry, you're out of luck, pal!"
+lucky _ = "Sorry, you're out of luck, pal!"
 
 sayMe :: (Integral a) => a -> String
 sayMe 1 = "One!"
@@ -8,7 +10,7 @@ sayMe 2 = "Two!"
 sayMe 3 = "Three!"
 sayMe 4 = "Four!"
 sayMe 5 = "Five!"
-sayMe x = "Not between 1 and 5"
+sayMe _ = "Not between 1 and 5"
 
 -- Function Recursive
 factorial :: (Integral a) => a -> a
@@ -20,6 +22,7 @@ charName :: Char -> String
 charName 'a' = "Albert"
 charName 'b' = "Broseph"
 charName 'c' = "Cecil"
+charName _ = "Unknown"
 
 -- Using fst and snd functions
 -- addVectors :: (Num a) => (a, a) -> (a, a) -> (a, a)
@@ -62,4 +65,4 @@ sum' (x:xs) = x + sum' xs
 
 capital :: String -> String
 capital "" = "Empty string, whoops!"
-capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x] ++ " and the tail is: " ++ xs
+capital str@(x:xs) = "The first letter of " ++ str ++ " is " ++ [x] ++ " and the tail is: " ++ xs
