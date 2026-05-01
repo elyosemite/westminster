@@ -1,8 +1,9 @@
-import Control.Concurrent.STM (check)
+module Chapter04.PatternMatching where
+
 -- This function checks if the number we supplied to it is a seven or not.
 lucky :: (Integral a) => a -> String
 lucky 7 = "LUCKY NUMBER SEVEN!"
-lucky x = "Sorry, you're out of luck, pal!"
+lucky _ = "Sorry, you're out of luck, pal!"
 
 -- This function checks if the string we supplied to it
 -- is a "Yuri Melo" or "Thamirys Melo" or not.
@@ -53,7 +54,7 @@ sayMe 2 = "Two!"
 sayMe 3 = "Three!"
 sayMe 4 = "Four!"
 sayMe 5 = "Five!"
-sayMe x = "Not between 1 and 5"
+sayMe _ = "Not between 1 and 5"
 
 -- Calculate the Factorial
 factorial :: (Integral a) => a -> a
