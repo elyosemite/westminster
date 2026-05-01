@@ -1,3 +1,5 @@
+module Chapter04.Guards where
+
 bmiTell :: (RealFloat a) => a  -> String
 bmiTell bmi
     | bmi <= 18.5 = "You're underweight, you emo, you!"
@@ -8,9 +10,9 @@ bmiTell bmi
 -- BMI Function version 2
 bmiTellV2 :: (RealFloat a) => a -> a -> String
 bmiTellV2 weight height
-    | weight / height ^ 2 <= 18.5 = "You're underweight, you emo, you!"
-    | weight / height ^ 2 <= 25.0 = "You're supposedly normal . Pffft, I bet you're ugly !"
-    | weight / height ^ 2 <= 30.0 = "You're fat! Lose some weight, fatty!"
+    | weight / height ** 2 <= 18.5 = "You're underweight, you emo, you!"
+    | weight / height ** 2 <= 25.0 = "You're supposedly normal . Pffft, I bet you're ugly !"
+    | weight / height ** 2 <= 30.0 = "You're fat! Lose some weight, fatty!"
     | otherwise = "You're a whale, congratulations!"
 
 -- My own Max function
@@ -51,4 +53,5 @@ gradeClassification grade
     | grade >= 7 = "Aprovado"
     | grade >= 5 = "Reprovado"
     | otherwise  = "Reprovado"
+
 
