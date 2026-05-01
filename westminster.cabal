@@ -55,7 +55,7 @@ common warnings
 
 common common-src
     default-language: Haskell2010
-    build-depends:    base >=4.17.2.1
+    build-depends:    base >=4.17.2.1 && <5
 
 library
     import:           common-src
@@ -73,8 +73,23 @@ library
       , Domain.Entity.User
     hs-source-dirs:   src
     ghc-options: -Wall -Werror
+    other-modules:
+        Chapter03.Types
+      , Chapter04.Guards
+      , Chapter04.Let
+      , Chapter04.PatternMatching
+      , Chapter04.Where
+      , Chapter05.Recursion
+      , Chapter06.CurryFunctions
+      , Chapter06.HigherOrderFunction
+      , Chapter06.Lambdas
+      , Stuffs.Baby
+      , Stuffs.Casexpressions
+      , Stuffs.Functionguards
+      , Stuffs.Functionparameters
+      , Stuffs.Maybe
     build-depends:
-        base >=4.17.2.1
+        base >=4.17.2.1 && <5
       , servant
       , servant-server
       , warp
@@ -97,7 +112,7 @@ executable westminster
 
     -- Other library packages from which modules are imported.
     build-depends:
-        base >=4.17.2.1,
+        base >=4.17.2.1 && <5,
         servant,
         servant-server,
         warp,
@@ -107,7 +122,7 @@ executable westminster
         time,
         westminster
     -- Directories containing source files.
-    hs-source-dirs:   src
+    hs-source-dirs:   app
 
     -- Base language which the package is written in.
     default-language: Haskell2010
@@ -120,7 +135,7 @@ test-suite tests
   default-language: Haskell2010
   ghc-options: -Wall -Werror -threaded -rtsopts
   build-depends:
-      base >=4.17.2.1
+      base >=4.17.2.1 && <5
     , hspec ^>=2.11
     , QuickCheck ^>=2.14
     , westminster
