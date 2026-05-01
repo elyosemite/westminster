@@ -1,3 +1,5 @@
+module Chapter06.HigherOrderFunction where
+
 import Data.Char (toUpper, isSpace, isUpper)
 applytwice :: (a -> a) -> a -> a
 applytwice f x = f (f x)

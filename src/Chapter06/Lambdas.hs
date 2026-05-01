@@ -1,5 +1,5 @@
-import Distribution.Compat.CharParsing (integral)
-import System.Win32 (xBUTTON1)
+module Chapter06.Lambdas where
+
 -- Collatz Sequence
 chain :: (Integral a) => a -> [a]
 chain 1 = [1]
