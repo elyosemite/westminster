@@ -1,3 +1,5 @@
+module Chapter06.CurryFunctions where
+
 multThree :: (Num a) => a -> (a -> (a -> a))
 multThree x y z = x * y * z
 
@@ -84,3 +86,4 @@ subtractMinusTen number = (subtract 10) number
 
 add :: Int -> Int -> Int
 add = (\x -> (\y -> x+y))
+

@@ -1,3 +1,5 @@
+module Chapter05.Recursion where
+
 maximum' :: (Ord a) => [a] -> a
 maximum' [] = error "maximum of empty list"
 maximum' [x] = x
@@ -48,7 +50,7 @@ zip' [] _ = []
 zip' (x:xs) (y:ys) = (x,y):zip' xs ys
 
 elem' :: (Eq a) => a -> [a] -> Bool
-elem' a [] = False
+elem' _ [] = False
 elem' a (x:xs)
     | a == x = True
     | otherwise = a `elem'` xs
@@ -59,3 +61,4 @@ quicksort (x:xs) =
     let smallerSorted = quicksort [a | a <- xs, a <= x]
         biggerSorted = quicksort [a | a <- xs, a <= x]
     in smallerSorted ++ [x] ++ biggerSorted
+
