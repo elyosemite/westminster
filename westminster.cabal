@@ -26,7 +26,7 @@ version:            0.1.0.0
 -- synopsis:
 
 -- A longer description of the package.
--- description:
+description: It is a great project to learn DDD and Haskell. It is a simple banking system that allows users to create accounts, deposit and withdraw money, and view their account balance.
 
 -- The license under which the package is released.
 license:            MIT
@@ -74,7 +74,7 @@ library
     hs-source-dirs:   src
     ghc-options: -Wall -Werror
     build-depends:
-        base ^>=4.17.2.1
+        base >=4.17.2.1
       , servant
       , servant-server
       , warp
@@ -97,7 +97,7 @@ executable westminster
 
     -- Other library packages from which modules are imported.
     build-depends:
-        base ^>=4.17.2.1,
+        base >=4.17.2.1,
         servant,
         servant-server,
         warp,
@@ -120,7 +120,7 @@ test-suite tests
   default-language: Haskell2010
   ghc-options: -Wall -Werror -threaded -rtsopts
   build-depends:
-      base ^>=4.17.2.1
+      base >=4.17.2.1
     , hspec ^>=2.11
     , QuickCheck ^>=2.14
     , westminster
