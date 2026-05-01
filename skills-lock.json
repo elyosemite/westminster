@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "haskell-pro": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/haskell-pro/SKILL.md",
+      "computedHash": "887541e577921a4217c60f48f786947f8e0da14fe85940157a5e746fd3f4bc00"
+    },
+    "peyton-jones-practical-haskell": {
+      "source": "copyleftdev/sk1llz",
+      "sourceType": "github",
+      "skillPath": "paradigms/functional/peyton-jones/SKILL.md",
+      "computedHash": "8543f90ee2da24e45a344a06afdf51d40b687e8c96b7eeaae7fd6900f2cccdf4"
+    }
+  }
+}
